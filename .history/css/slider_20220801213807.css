@@ -1,0 +1,44 @@
+/* Carousel base class */
+.carousel {
+  margin-bottom: 60px;
+}
+
+.carousel,
+.carousel .item,
+.carousel .item .active,
+.carousel-inner {
+  height: 100%;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+/* Declare heights */
+.carousel .item {
+  height: 100%;
+}
+
+.carousel .fill {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel .first-slide {
+  background-image: url("https://images.unsplash.com/photo-1466026396492-d69f93144acc");
+}
+
+.carousel .second-slide {
+  background-image: url("https://images.unsplash.com/photo-1503629473531-b06530731f51");
+}
+
+.carousel .third-slide {
+  background-image: url("https://images.unsplash.com/photo-1497996377197-e4b9024658a4");
+}

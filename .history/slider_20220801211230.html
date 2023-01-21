@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/slider.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <ul class="site-slider">
+        <li>
+          <div class="slider-img">
+            <img
+              src="https://webtechball.files.wordpress.com/2017/09/slider-img-1.jpg"
+              alt="Sldie 1"
+            />
+          </div>
+          <div class="slider-text">
+            <h3>Slide One</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </li>
+        <li>
+          <div class="slider-img">
+            <img
+              src="https://webtechball.files.wordpress.com/2017/09/slider-img-3.jpg"
+              alt="Sldie 2"
+            />
+          </div>
+          <div class="slider-text">
+            <h3>Slide Two</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </li>
+        <li>
+          <div class="slider-img">
+            <img
+              src="https://webtechball.files.wordpress.com/2017/09/slider-img-2.jpg"
+              alt="Sldie 3"
+            />
+          </div>
+          <div class="slider-text">
+            <h3>Slide Three</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".site-slider").owlCarousel({
+          loop: true,
+          auto: true,
+          dots: true,
+          mouseDrag: true,
+          autoplay: true,
+          items: 1,
+          nav: false,
+          onTranslated: function () {
+            var $slideHeading = $(
+              ".site-slider .owl-item.active .slider-text h3"
+            );
+            var $slidePara = $(".site-slider .owl-item.active .slider-text p");
+
+            $slideHeading
+              .addClass("animate-in-fast")
+              .on("animationend", function () {
+                $slideHeading
+                  .removeClass("animate-in-fast")
+                  .addClass("opacFull");
+              });
+
+            $slidePara
+              .addClass("animate-in-slow")
+              .on("animationend", function () {
+                $slidePara.removeClass("animate-in-slow").addClass("opacFull");
+              });
+          },
+          onChange: function () {
+            var $slideHeading = $(
+              ".site-slider .owl-item.active .slider-text h3"
+            );
+            var $slidePara = $(".site-slider .owl-item.active .slider-text p");
+
+            $slideHeading.removeClass("opacFull");
+            $slidePara.removeClass("opacFull");
+          },
+        });
+      });
+
+      $(window).on("load", function () {
+        var $slideHeading = $(".site-slider .owl-item.active .slider-text h3");
+        var $slidePara = $(".site-slider .owl-item.active .slider-text p");
+
+        $slideHeading
+          .addClass("animate-in-fast")
+          .on("animationend", function () {
+            $slideHeading.removeClass("animate-in-fast").addClass("opacFull");
+          });
+
+        $slidePara.addClass("animate-in-slow").on("animationend", function () {
+          $slidePara.removeClass("animate-in-slow").addClass("opacFull");
+        });
+      });
+    </script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
